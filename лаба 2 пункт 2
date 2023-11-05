@@ -1,9 +1,10 @@
 /*обычный индексовый цикл*/
 #include <iostream>
+#include <vector>
 #include <string>
 
 int main() {
-    std::string names[] = {
+    std::vector<std::string> names = {
         "Иволгин Роман",
         "Петров Николай",
         "Лебедева Мария",
@@ -16,10 +17,41 @@ int main() {
         "Ахматова Анастасия"
     };
 
-    int grades[] = {39, 89, 90, 78, 90, 100, 65, 34, 91, 100};
+    std::vector<int> grades = {39, 89, 90, 78, 90, 100, 65, 34, 91, 100};
 
-    for (size_t i = 0; i < sizeof(names) / sizeof(*names); i++) {
+    for (size_t i = 0; i < names.size(); i++) {
         std::cout << names[i] << " — " << grades[i] << "\n";
+    }
+
+    return 0;
+}
+
+/*цикл с помощью итератора*/
+#include <iostream>
+#include <vector>
+#include <string>
+
+int main() {
+    std::vector<std::string> names = {
+        "Иволгин Роман",
+        "Петров Николай",
+        "Лебедева Мария",
+        "Вологодская Елена",
+        "Семенов Андрей",
+        "Тимощук Валентин",
+        "Окладов Сергей",
+        "Яковлев Лев",
+        "Балконская Юлия",
+        "Ахматова Анастасия"
+    };
+
+    std::vector<int> grades = {39, 89, 90, 78, 90, 100, 65, 34, 91, 100};
+
+    std::vector<std::string>::iterator namesIt = names.begin();
+    std::vector<int>::iterator gradesIt = grades.begin();
+
+    for (; namesIt != names.end() && gradesIt != grades.end(); namesIt++, gradesIt++) {
+        std::cout << *namesIt << " — " << *gradesIt << "\n";
     }
 
     return 0;
