@@ -56,3 +56,32 @@ int main() {
 
     return 0;
 }
+/*range based for loop*/
+#include <iostream>
+#include <vector>
+#include <string>
+
+int main() {
+    std::vector<std::string> names = {
+        "Иволгин Роман",
+        "Петров Николай",
+        "Лебедева Мария",
+        "Вологодская Елена",
+        "Семенов Андрей",
+        "Тимощук Валентин",
+        "Окладов Сергей",
+        "Яковлев Лев",
+        "Балконская Юлия",
+        "Ахматова Анастасия"
+    };
+
+    std::vector<int> grades = {39, 89, 90, 78, 90, 100, 65, 34, 91, 100};
+
+    size_t i = 0;
+    for (const auto& name : names) {
+        std::cout << name << " — " << grades[i] << "\n";
+        i++;
+    }
+
+    return 0;
+}
